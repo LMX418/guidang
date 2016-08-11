@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+    list
+    <ul class="box">
+        <% data.forEach(function(data){ %>
+            <li>
+                第<%=data%>个
+            </li>
+        <% }) %>
+    </ul>
+    
+    <a href="/">index</a>
+    <button class="sub">
+        提交
+    </button>
+</body>
+<script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $('.sub').on('click',function(){
+        $.ajax({
+            url : "/getUser",
+            dataType:"json",
+            data : {"key":"fafsa"},
+            method : "POST",
+            success:function(data){
+                console.log(data)
+            }
+        })
+        // window.open('TENCENT://');
+    })
+
+
+    function add(name,age){
+        console.log(arguments)
+    }
+
+    add('fsafs',1122)
+
+</script>
+</html>
